@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-int ft_strlen(char const *str)
+int ft_strlen_const(char const *str)
 {
     int len;
 
@@ -54,13 +55,13 @@ int     count(char const *str, char c)
     char const *temp;
     int i;
     
-    temp = malloc((ft_strlen(str) + 1) * sizeof(char));
+    temp = malloc((ft_strlen_const(str) + 1) * sizeof(char));
     temp = forward(str, c);
 
     while (temp[0])
     {
         i++;
-        temp = temp + ft_strlen(line(temp, c));
+        temp = temp + ft_strlen_const(line(temp, c));
         temp = forward(temp, c);
     }   
     return i;
@@ -74,14 +75,14 @@ char	**ft_split(char const *s, char c)
     
     res = malloc((count(s, c) + 1) * sizeof(char *));
     i = 0;
-    temp = malloc((ft_strlen(s) + 1) * sizeof(char));
+    temp = malloc((ft_strlen_const(s) + 1) * sizeof(char));
     temp = forward(s, c);
 
     while (temp[0])
     {
-        res[i] = malloc((ft_strlen(line(temp, c)) + 1) * sizeof(char));
+        res[i] = malloc((ft_strlen_const(line(temp, c)) + 1) * sizeof(char));
         res[i] = line(temp, c);
-        temp = temp + ft_strlen(res[i]);
+        temp = temp + ft_strlen_const(res[i]);
         temp = forward(temp, c);
         i++;
     }

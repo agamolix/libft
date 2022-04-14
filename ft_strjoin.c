@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-int    ft_strlen(const char *str)
+int    ft_strlen_const(const char *str)
 {
     int i;
 
@@ -31,18 +32,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
     if (s1 == 0 && s2 == 0)
         return (0);
-    res = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+    res = malloc((ft_strlen_const(s1) + ft_strlen_const(s2) + 1) * sizeof(char));
     if (res == 0)
         return 0;
     i = 0;
-    while (i < ft_strlen(s1))
+    while (i < ft_strlen_const(s1))
     {
         res[i] = s1[i];
         i++;
     }
-    while(i < ft_strlen(s1) + ft_strlen(s2))
+    while(i < ft_strlen_const(s1) + ft_strlen_const(s2))
     {
-        res[i] = s2[i - ft_strlen(s1)];
+        res[i] = s2[i - ft_strlen_const(s1)];
         i++; 
     }
     res[i] = 0;
