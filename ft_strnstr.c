@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstrTest.c                                   :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atrilles <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,12 +31,13 @@ char    *ft_strnstr(const char *s1, const char *s2, size_t n)
 {
     int valid; 
 
-    if (s2 == 0)
+    if (s2[0] == 0)
         return ((char *)s1);
     else
     {
-	    while (((char *)s1)[0] && n)
+	    while (s1[0] && n)
 	    {
+			n--;
             if (s1[0] == s2[0])
             {
                 valid = ft_valid((char *)s1, (char *)s2);

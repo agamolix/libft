@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atrilles <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,17 +14,17 @@
 #include "libft.h"
 
 int ft_memcmp(const void *s1, const void *s2, size_t n)
-
 {
-	if (n == 0)
+	size_t i;
+
+	if (n == 0 || s1 == 0 || s2 == 0)
 		return 0;
-	while ((((char *)s1)[0] || ((char *)s2)[0]) && n && ((char *)s1)[0] == ((char *)s2)[0])
+	i = 0;
+	while (i < n)
 	{
-		s1++;
-        s2++;
-		n--;
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return ((unsigned char *)s1)[i] - ((unsigned char *)s2)[i];
+		i++;
 	}
-	if (((char *)s1)[0] != ((char *)s2)[0])
-		return (((char *)s1)[0] - ((char *)s2)[0]);
 	return (0);
 }
