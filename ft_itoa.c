@@ -17,59 +17,49 @@ int count(int n)
 {
     int i;
 
-    i = 1;
-    while (n / 10 > 0)
+    i = 0;
+    if (n == 0)
+        return (1);
+    if (n < 0)
     {
+        if (n == INT_MIN)
+            n = n + 1;
+        n = -n;
         i++;
+    }
+    while (n > 0)
+    {
         n = n / 10;
+        i++;
     }
     return (i);
 }
 
-char    *ft_pos(int n)
-{
-    char    *res;
-    int     i; 
 
-    res = malloc((count(n) + 1) * sizeof(char));
-    i = count(n) - 1;
-    while (i >= 0)
-    {
-        res[i] = n % 10 + '0';
-        n = n / 10;
-        i--;
-    }
-    return (res);
-}
-
-char    *ft_neg(int n)
-{
-    char    *res;
-    int     i; 
-
-    res = malloc((count(n) + 1) * sizeof(char));
-    i = count(n);
-    while (i > 0)
-    {
-        res[i] = n % 10 + '0';
-        n = n / 10;
-        i--;
-    }
-    res[0] = '-';
-    return (res);
-}
 char	*ft_itoa(int n)
 {
-    int sign;
+    char        *res;
+    int         i; 
+    long int    nb;
 
-    if (n == 0)
-        return ("0");
-    sign = 1;
-    if (n < 0)
-        sign = -1;
-    n = n * sign;
-    if (sign == 1)
-        return (ft_pos(n));
-    else
-        return (ft_neg(n));
+    nb = n;
+    res = malloc((count(n) + 1) * sizeof(char));
+    if (res == 0)
+        return (0);
+    i = count(n);
+    res[i] = 0;
+    if (nb < 0)
+    {
+        res[0] = '-';
+        nb = -nb;
+    }
+    if (nb == 0)
+        res[0] = '0';
+    while (nb > 0)
+    {
+        res[i - 1] = nb % 10 + '0';
+        nb = nb / 10;
+        i--;
+    }
+    return (res);
 }

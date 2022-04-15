@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
+
 int    ft_suppchar(char c, char const *set)
 {
     while (set[0])
@@ -36,18 +37,12 @@ int    ft_strlen_trim(char const *str)
     return (i);
 }
 
-char    *ft_res(char const *s1, int start, int end)
+char    *ft_res(char *res, char const *s1, int start, int end)
 {
-    char    *res;
     int     i;
 
-    if (start >= end)
-        return 0;
-    res = malloc((end - start + 1) * sizeof(char));
-    if (res == 0)
-        return 0;
     i = 0;
-    while (start <= end)
+    while (start < end)
     {
         res[i] = s1[start];
         start++;
@@ -59,16 +54,20 @@ char    *ft_res(char const *s1, int start, int end)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+    char *res;
     int start; 
     int end;
 
-    if (s1 == 0)
-        return (0);
     start = 0;
-    while (s1[start] && ft_suppchar(s1[start], set))
-        start++;
-    end = ft_strlen_trim(s1) - 1;
-    while (s1[end] && ft_suppchar(s1[end], set))
+	if (s1 == 0 || set == 0)
+		return (0);
+	while (s1[start] && ft_suppchar(s1[start], set))
+		start++;
+    end = ft_strlen_trim(s1);
+    while (end > start && s1[end - 1] && ft_suppchar(s1[end - 1], set))
         end--;
-    return (ft_res(s1, start, end));
+    res = malloc((end - start + 1) * sizeof(char));
+    if (res == 0)
+        return 0;
+    return (ft_res(res, s1, start, end));
 }

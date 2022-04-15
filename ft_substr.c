@@ -13,21 +13,36 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char    *emptystr()
 {
     char    *res;
 
-    if (len == 0 || s == 0)
+    res = malloc(sizeof(char));
+    res[0] = 0;
+    return res;
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+    char    *res;
+    int i;
+
+    i = 0;
+    if (s == 0)
         return (0);
-    res = malloc((len + 1) * sizeof(char));
+    if (start > ft_strlen((char *)s))
+        return (emptystr());
+    if (len > ft_strlen((char *)s) - start)
+        res = malloc((ft_strlen((char *)s) - start + 1) * sizeof(char));
+    else
+        res = malloc((len + 1) * sizeof(char));
     if (res == 0)
         return 0;
-    res[len] = 0;
-    while (len > 0)
+    while (s[start + i] && i < (int)len)
     {
-        len--;
-        res[len] = s[start + len];
+        res[i] = s[start + i];
+        i++;
     }
-    
+    res[i] = 0;
     return (res);
 }

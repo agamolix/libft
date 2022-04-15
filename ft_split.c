@@ -43,19 +43,22 @@ char    *line(char const *str, char c)
     return (temp);
 }
 
-const char    *forward(char const *str, char c)
+char    *forward(char const *str, char c)
 {
     while (str[0] && str[0] == c)
         str++;
-    return (str);
+    return ((char *)str);
 }
 
 int     count(char const *str, char c)
 {
-    char const *temp;
+    char *temp;
+    char *freetemp;
     int i;
-    
+
+    i = 0;    
     temp = malloc((ft_strlen_split(str) + 1) * sizeof(char));
+    freetemp = temp;
     temp = forward(str, c);
 
     while (temp[0])
@@ -64,6 +67,7 @@ int     count(char const *str, char c)
         temp = temp + ft_strlen_split(line(temp, c));
         temp = forward(temp, c);
     }   
+    free (freetemp);
     return i;
 }
 
@@ -71,7 +75,7 @@ char	**ft_split(char const *s, char c)
 {
     char const   **res;
     int i; 
-    char const  *temp;
+    char *temp;
     
     res = malloc((count(s, c) + 1) * sizeof(char *));
     i = 0;

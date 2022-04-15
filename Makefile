@@ -32,8 +32,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $@ $^ $(LDFLAGS)
-	ranlib $@
+	ar rcs $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
@@ -49,5 +48,4 @@ fclean: clean
 re:	fclean all
 
 bonus: $(OBJ_BONUS) $(NAME)
-	ar rc $(NAME) $^ $(LDFLAGS)
-	ranlib $(NAME)
+	ar rcs $(NAME) $^ $(LDFLAGS)
