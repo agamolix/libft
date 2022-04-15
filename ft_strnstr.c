@@ -31,8 +31,6 @@ char    *ft_strnstr(const char *s1, const char *s2, size_t n)
 {
     int valid; 
 
-	if (n == 0 || s1 == 0)
-		return (0);
     if (s2 == 0)
         return ((char *)s1);
     else

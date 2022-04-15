@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_strlen_const(const char *str)
+int	ft_strlen_strdup(const char *str)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ char	*ft_strdup(const char *src)
 	char	*s2;
 	int		i;
 
-	size = ft_strlen_const(src) + 1;
+	size = ft_strlen_strdup(src) + 1;
 	s2 = malloc (size * sizeof(char));
 	if (s2 == 0)
 		return (0);

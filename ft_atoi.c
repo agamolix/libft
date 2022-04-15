@@ -67,6 +67,8 @@ int ft_atoi(const char *nptr)
         sign = -1;
         res++;
     }
+    else if (res[0] == '+')
+        res++;
     len_nb = calc_len_nb(res);
     return (convert(res, len_nb, sign));
 }

@@ -24,7 +24,7 @@ int    ft_suppchar(char c, char const *set)
     return (0);
 }
 
-int    ft_strlen_const(char const *str)
+int    ft_strlen_trim(char const *str)
 {
     int i;
 
@@ -67,7 +67,7 @@ char	*ft_strtrim(char const *s1, char const *set)
     start = 0;
     while (s1[start] && ft_suppchar(s1[start], set))
         start++;
-    end = ft_strlen_const(s1) - 1;
+    end = ft_strlen_trim(s1) - 1;
     while (s1[end] && ft_suppchar(s1[end], set))
         end--;
     return (ft_res(s1, start, end));
