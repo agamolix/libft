@@ -6,7 +6,7 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:35:18 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/20 12:33:55 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 12:34:50 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char	**ft_split(char const *s, char c)
         return (NULL);
     
     res = malloc((count(s, c) + 1) * sizeof(char *));
-    printf("taille2 = %zu\n", (count(s, c) + 1) * sizeof(char *));
     if (res == 0)
       return (NULL);
     
