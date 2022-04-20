@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atrilles <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:35:18 by atrilles          #+#    #+#             */
-/*   Updated: 2022/02/08 16:14:27 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 12:33:55 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char    *line(char const *str, char c)
     while (str[len] && str[len] != c)
         len++;
     temp = malloc((len + 1) * sizeof(char));
+    if (temp == 0)
+        return 0;
     i = 0;
     while (i < len)
     {
@@ -53,21 +55,18 @@ char    *forward(char const *str, char c)
 int     count(char const *str, char c)
 {
     char *temp;
-    char *freetemp;
     int i;
 
     i = 0;    
-    temp = malloc((ft_strlen_split(str) + 1) * sizeof(char));
-    freetemp = temp;
     temp = forward(str, c);
 
     while (temp[0])
     {
         i++;
-        temp = temp + ft_strlen_split(line(temp, c));
+        while (temp[0] && temp[0] != c)
+			temp++;
         temp = forward(temp, c);
     }   
-    free (freetemp);
     return i;
 }
 
@@ -77,14 +76,20 @@ char	**ft_split(char const *s, char c)
     int i; 
     char *temp;
     
+    if (s == 0)
+        return (NULL);
+    
     res = malloc((count(s, c) + 1) * sizeof(char *));
+    printf("taille2 = %zu\n", (count(s, c) + 1) * sizeof(char *));
+    if (res == 0)
+      return (NULL);
+    
+      
     i = 0;
-    temp = malloc((ft_strlen_split(s) + 1) * sizeof(char));
     temp = forward(s, c);
 
     while (temp[0])
     {
-        res[i] = malloc((ft_strlen_split(line(temp, c)) + 1) * sizeof(char));
         res[i] = line(temp, c);
         temp = temp + ft_strlen_split(res[i]);
         temp = forward(temp, c);
