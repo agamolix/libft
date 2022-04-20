@@ -6,7 +6,7 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 14:18:09 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:21:16 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:52:24 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_lstsize(t_list *lst)
 	if (lst == 0)
 		return (0);
 	i = 0;
-	while (lst->next != 0)
+	while (lst != 0)
 	{
 		lst = lst->next;
 		i++;
