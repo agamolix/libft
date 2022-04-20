@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 14:48:42 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:04:14 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:40:42 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_strlen_join(const char *str)
+static int	ft_strlen_join(const char *str)
 {
 	int	i;
 

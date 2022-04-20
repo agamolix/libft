@@ -6,7 +6,7 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 14:01:33 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:37:54 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:42:30 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	count(int n)
+static int	count(int n)
 {
 	int	i;
 

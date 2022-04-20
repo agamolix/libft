@@ -6,13 +6,13 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:53:59 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 13:54:33 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:42:24 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*remove_space(char *str)
+static char	*remove_space(char *str)
 {
 	while (str[0] == ' ' || str[0] == '\t' || str[0] == '\n' || str[0] == '\v'
 		|| str[0] == '\f' || str[0] == '\r')
@@ -22,7 +22,7 @@ char	*remove_space(char *str)
 	return (str);
 }
 
-int	convert(char *str, int len_nb, int sign)
+static int	convert(char *str, int len_nb, int sign)
 {
 	unsigned int	res;
 
@@ -42,7 +42,7 @@ int	convert(char *str, int len_nb, int sign)
 	return ((int)res * sign);
 }
 
-int	calc_len_nb(char *str)
+static int	calc_len_nb(char *str)
 {
 	int	len_nb;
 

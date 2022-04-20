@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 15:58:34 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:00:49 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:38:56 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_suppchar(char c, char const *set)
+static int	ft_suppchar(char c, char const *set)
 {
 	while (set[0])
 	{
@@ -24,7 +24,7 @@ int	ft_suppchar(char c, char const *set)
 	return (0);
 }
 
-int	ft_strlen_trim(char const *str)
+static int	ft_strlen_trim(char const *str)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_strlen_trim(char const *str)
 	return (i);
 }
 
-char	*ft_res(char *res, char const *s1, int start, int end)
+static char	*ft_res(char *res, char const *s1, int start, int end)
 {
 	int	i;
 

@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 15:57:01 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 15:58:17 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:38:02 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*emptystr(void)
+static char	*emptystr(void)
 {
 	char	*res;
 

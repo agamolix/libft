@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:01:32 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:01:58 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:39:22 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_valid(char *s1, char *s2)
+static int	ft_valid(char *s1, char *s2)
 {
 	int	i;
 

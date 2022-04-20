@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:35:18 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/20 13:03:51 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:41:27 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_strlen_split(char const *str)
+static int	ft_strlen_split(char const *str)
 {
 	int	len;
 
@@ -23,7 +23,7 @@ int	ft_strlen_split(char const *str)
 	return (len);
 }
 
-char	*line(char const *str, char c)
+static char	*line(char const *str, char c)
 {
 	char	*temp;
 	int		len;
@@ -45,14 +45,14 @@ char	*line(char const *str, char c)
 	return (temp);
 }
 
-char	*forward(char const *str, char c)
+static char	*forward(char const *str, char c)
 {
 	while (str[0] && str[0] == c)
 		str++;
 	return ((char *)str);
 }
 
-int	count(char const *str, char c)
+static int	count(char const *str, char c)
 {
 	char	*temp;
 	int		i;

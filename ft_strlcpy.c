@@ -6,14 +6,14 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 14:51:56 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/19 16:03:47 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/20 13:40:02 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_strlen_strlcpy(const char *str)
+static size_t	ft_strlen_strlcpy(const char *str)
 {
 	size_t	i;
 
