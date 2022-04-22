@@ -6,47 +6,31 @@
 /*   By: atrilles <atrilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:01:32 by atrilles          #+#    #+#             */
-/*   Updated: 2022/04/20 13:39:22 by atrilles         ###   ########.fr       */
+/*   Updated: 2022/04/21 15:07:48 by atrilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static int	ft_valid(char *s1, char *s2)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (s2[i])
+	if (needle[i] == 0)
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && len != 0)
 	{
-		if (s2[i] != s1[i])
-			return (0);
+		j = 0;
+		while (haystack[i + j] == needle[j] && len > (i + j))
+		{
+			j++;
+			if ((size_t)ft_strlen(needle) == j)
+				return ((char *)haystack + i);
+		}
 		i++;
 	}
-	return (1);
-}
-
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
-{
-	int	valid;
-
-	if (s2[0] == 0)
-		return ((char *)s1);
-	else
-	{
-		while (s1[0] && n)
-		{
-			n--;
-			if (s1[0] == s2[0])
-			{
-				valid = ft_valid((char *)s1, (char *)s2);
-				if (valid == 1)
-					return ((char *)s1);
-			}
-			s1++;
-			n--;
-		}
-	}
-	return (0);
+	return (NULL);
 }
